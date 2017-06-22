@@ -1,0 +1,31 @@
+writing file:/tmp/cdr_genarated_20160927_065536.csv
+rnd=52
+drop=25
+change=20
+---sleep---
+writing file:/tmp/cdr_genarated_20160927_065636.csv
+rnd=50
+drop=29
+change=12
+---sleep---
+writing file:/tmp/cdr_genarated_20160927_065736.csv
+rnd=56
+drop=18
+change=10
+---sleep---
+writing file:/tmp/cdr_genarated_20160927_065836.csv
+rnd=52
+drop=22
+change=12
+---sleep---
+writing file:/tmp/cdr_genarated_20160927_065936.csv
+rnd=70
+drop=11
+change=26
+---sleep---
+writing file:/tmp/cdr_genarated_20160927_070036.csv
+rnd=69
+drop=1
+change=21
+---sleep---
+/root/telco-cdr-monitoring/scripts/start_cdr_producer.sh: line 1:  6065 Killed                  java -classpath /root/telco-cdr-monitoring/target/telco-cdr-monitoring-1.0-SNAPSHOT.jar com.github.gbraccialli.telco.cdr.test.GenerateSampleCDR

@@ -1,0 +1,619 @@
+Running: /usr/lib/jvm/java/bin/java -server -Ddaemon.name= -Dstorm.options= -Dstorm.home=/usr/hdp/2.5.0.0-1245/storm -Dstorm.log.dir=/var/log/storm -Djava.library.path=/usr/local/lib:/opt/local/lib:/usr/lib -Dstorm.conf.file= -cp /usr/hdp/2.5.0.0-1245/storm/lib/ambari-metrics-storm-sink.jar:/usr/hdp/2.5.0.0-1245/storm/lib/asm-5.0.3.jar:/usr/hdp/2.5.0.0-1245/storm/lib/clojure-1.7.0.jar:/usr/hdp/2.5.0.0-1245/storm/lib/disruptor-3.3.2.jar:/usr/hdp/2.5.0.0-1245/storm/lib/kryo-3.0.3.jar:/usr/hdp/2.5.0.0-1245/storm/lib/log4j-api-2.1.jar:/usr/hdp/2.5.0.0-1245/storm/lib/log4j-core-2.1.jar:/usr/hdp/2.5.0.0-1245/storm/lib/log4j-over-slf4j-1.6.6.jar:/usr/hdp/2.5.0.0-1245/storm/lib/log4j-slf4j-impl-2.1.jar:/usr/hdp/2.5.0.0-1245/storm/lib/minlog-1.3.0.jar:/usr/hdp/2.5.0.0-1245/storm/lib/objenesis-2.1.jar:/usr/hdp/2.5.0.0-1245/storm/lib/reflectasm-1.10.1.jar:/usr/hdp/2.5.0.0-1245/storm/lib/ring-cors-0.1.5.jar:/usr/hdp/2.5.0.0-1245/storm/lib/servlet-api-2.5.jar:/usr/hdp/2.5.0.0-1245/storm/lib/slf4j-api-1.7.7.jar:/usr/hdp/2.5.0.0-1245/storm/lib/storm-core-1.0.1.2.5.0.0-1245.jar:/usr/hdp/2.5.0.0-1245/storm/lib/storm-rename-hack-1.0.1.2.5.0.0-1245.jar:/usr/hdp/2.5.0.0-1245/storm/lib/zookeeper.jar:/usr/hdp/2.5.0.0-1245/storm/extlib/atlas-plugin-classloader-0.7.0.2.5.0.0-1245.jar:/usr/hdp/2.5.0.0-1245/storm/extlib/storm-bridge-shim-0.7.0.2.5.0.0-1245.jar org.apache.storm.daemon.ClientJarTransformerRunner org.apache.storm.hack.StormShadeTransformer /root/telco-cdr-monitoring/target/telco-cdr-monitoring-1.0-SNAPSHOT.jar /tmp/667613ba847f11e68f610242ac110002.jar
+562  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/Config to org/apache/storm/Config in com/github/gbraccialli/telco/cdr/storm/Topology.class. please modify your code to use the new namespace
+565  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/topology/TopologyBuilder to org/apache/storm/topology/TopologyBuilder in com/github/gbraccialli/telco/cdr/storm/Topology.class. please modify your code to use the new namespace
+570  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/spout/SchemeAsMultiScheme to org/apache/storm/spout/SchemeAsMultiScheme in com/github/gbraccialli/telco/cdr/storm/Topology.class. please modify your code to use the new namespace
+570  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/spout/Scheme to org/apache/storm/spout/Scheme in com/github/gbraccialli/telco/cdr/storm/Topology.class. please modify your code to use the new namespace
+570  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/spout/MultiScheme to org/apache/storm/spout/MultiScheme in com/github/gbraccialli/telco/cdr/storm/Topology.class. please modify your code to use the new namespace
+571  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/topology/IRichSpout to org/apache/storm/topology/IRichSpout in com/github/gbraccialli/telco/cdr/storm/Topology.class. please modify your code to use the new namespace
+571  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/topology/SpoutDeclarer to org/apache/storm/topology/SpoutDeclarer in com/github/gbraccialli/telco/cdr/storm/Topology.class. please modify your code to use the new namespace
+571  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/tuple/Fields to org/apache/storm/tuple/Fields in com/github/gbraccialli/telco/cdr/storm/Topology.class. please modify your code to use the new namespace
+572  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/topology/IRichBolt to org/apache/storm/topology/IRichBolt in com/github/gbraccialli/telco/cdr/storm/Topology.class. please modify your code to use the new namespace
+573  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/topology/BoltDeclarer to org/apache/storm/topology/BoltDeclarer in com/github/gbraccialli/telco/cdr/storm/Topology.class. please modify your code to use the new namespace
+573  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/topology/InputDeclarer to org/apache/storm/topology/InputDeclarer in com/github/gbraccialli/telco/cdr/storm/Topology.class. please modify your code to use the new namespace
+577  [main] WARN  o.a.s.h.DefaultShader - Relocating org/apache/storm/guava/collect/Lists to org/apache/storm/shade/com/google/common/collect/Lists in com/github/gbraccialli/telco/cdr/storm/Topology.class. You are accessing an internal class of storm which can be removed in future. Do not use the shaded classes inside storm
+582  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/LocalCluster to org/apache/storm/LocalCluster in com/github/gbraccialli/telco/cdr/storm/Topology.class. please modify your code to use the new namespace
+582  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/generated/StormTopology to org/apache/storm/generated/StormTopology in com/github/gbraccialli/telco/cdr/storm/Topology.class. please modify your code to use the new namespace
+583  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/StormSubmitter to org/apache/storm/StormSubmitter in com/github/gbraccialli/telco/cdr/storm/Topology.class. please modify your code to use the new namespace
+588  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/task/OutputCollector to org/apache/storm/task/OutputCollector in com/github/gbraccialli/telco/cdr/storm/bolt/NetworkTypeChangeBolt.class. please modify your code to use the new namespace
+590  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/task/TopologyContext to org/apache/storm/task/TopologyContext in com/github/gbraccialli/telco/cdr/storm/bolt/NetworkTypeChangeBolt.class. please modify your code to use the new namespace
+590  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/tuple/Tuple to org/apache/storm/tuple/Tuple in com/github/gbraccialli/telco/cdr/storm/bolt/NetworkTypeChangeBolt.class. please modify your code to use the new namespace
+592  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/tuple/Values to org/apache/storm/tuple/Values in com/github/gbraccialli/telco/cdr/storm/bolt/NetworkTypeChangeBolt.class. please modify your code to use the new namespace
+595  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/topology/OutputFieldsDeclarer to org/apache/storm/topology/OutputFieldsDeclarer in com/github/gbraccialli/telco/cdr/storm/bolt/NetworkTypeChangeBolt.class. please modify your code to use the new namespace
+641  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/generated/Nimbus$Client to org/apache/storm/generated/Nimbus$Client in com/github/gbraccialli/storm/commom/utils/Utils.class. please modify your code to use the new namespace
+642  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/generated/Nimbus to org/apache/storm/generated/Nimbus in com/github/gbraccialli/storm/commom/utils/Utils.class. please modify your code to use the new namespace
+642  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/utils/Utils to org/apache/storm/utils/Utils in com/github/gbraccialli/storm/commom/utils/Utils.class. please modify your code to use the new namespace
+642  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/utils/NimbusClient to org/apache/storm/utils/NimbusClient in com/github/gbraccialli/storm/commom/utils/Utils.class. please modify your code to use the new namespace
+643  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/generated/KillOptions to org/apache/storm/generated/KillOptions in com/github/gbraccialli/storm/commom/utils/Utils.class. please modify your code to use the new namespace
+644  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/generated/ClusterSummary to org/apache/storm/generated/ClusterSummary in com/github/gbraccialli/storm/commom/utils/Utils.class. please modify your code to use the new namespace
+644  [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/generated/TopologySummary to org/apache/storm/generated/TopologySummary in com/github/gbraccialli/storm/commom/utils/Utils.class. please modify your code to use the new namespace
+20273 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/spout/RawMultiScheme to org/apache/storm/spout/RawMultiScheme in storm/kafka/KafkaConfig.class. please modify your code to use the new namespace
+20274 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/topology/base/BaseRichSpout to org/apache/storm/topology/base/BaseRichSpout in storm/kafka/KafkaSpout.class. please modify your code to use the new namespace
+20274 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/spout/SpoutOutputCollector to org/apache/storm/spout/SpoutOutputCollector in storm/kafka/KafkaSpout.class. please modify your code to use the new namespace
+20275 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/metric/api/IMetric to org/apache/storm/metric/api/IMetric in storm/kafka/KafkaSpout.class. please modify your code to use the new namespace
+20278 [main] WARN  o.a.s.h.DefaultShader - Relocating storm/trident/spout/IOpaquePartitionedTridentSpout$Emitter to org/apache/storm/trident/spout/IOpaquePartitionedTridentSpout$Emitter in storm/kafka/trident/TridentKafkaEmitter$1.class. please modify your code to use the new namespace
+20278 [main] WARN  o.a.s.h.DefaultShader - Relocating storm/trident/spout/IOpaquePartitionedTridentSpout to org/apache/storm/trident/spout/IOpaquePartitionedTridentSpout in storm/kafka/trident/TridentKafkaEmitter$1.class. please modify your code to use the new namespace
+20279 [main] WARN  o.a.s.h.DefaultShader - Relocating storm/trident/topology/TransactionAttempt to org/apache/storm/trident/topology/TransactionAttempt in storm/kafka/trident/TridentKafkaEmitter$1.class. please modify your code to use the new namespace
+20279 [main] WARN  o.a.s.h.DefaultShader - Relocating storm/trident/operation/TridentCollector to org/apache/storm/trident/operation/TridentCollector in storm/kafka/trident/TridentKafkaEmitter$1.class. please modify your code to use the new namespace
+20279 [main] WARN  o.a.s.h.DefaultShader - Relocating storm/trident/spout/ISpoutPartition to org/apache/storm/trident/spout/ISpoutPartition in storm/kafka/trident/TridentKafkaEmitter$1.class. please modify your code to use the new namespace
+20279 [main] WARN  o.a.s.h.DefaultShader - Relocating storm/trident/spout/IPartitionedTridentSpout$Emitter to org/apache/storm/trident/spout/IPartitionedTridentSpout$Emitter in storm/kafka/trident/TridentKafkaEmitter$2.class. please modify your code to use the new namespace
+20279 [main] WARN  o.a.s.h.DefaultShader - Relocating storm/trident/spout/IPartitionedTridentSpout to org/apache/storm/trident/spout/IPartitionedTridentSpout in storm/kafka/trident/TridentKafkaEmitter$2.class. please modify your code to use the new namespace
+20280 [main] WARN  o.a.s.h.DefaultShader - Relocating storm/trident/spout/IOpaquePartitionedTridentSpout$Coordinator to org/apache/storm/trident/spout/IOpaquePartitionedTridentSpout$Coordinator in storm/kafka/trident/OpaqueTridentKafkaSpout.class. please modify your code to use the new namespace
+20281 [main] WARN  o.a.s.h.DefaultShader - Relocating storm/trident/state/State to org/apache/storm/trident/state/State in storm/kafka/trident/TridentKafkaState.class. please modify your code to use the new namespace
+20281 [main] WARN  o.a.s.h.DefaultShader - Relocating storm/trident/tuple/TridentTuple to org/apache/storm/trident/tuple/TridentTuple in storm/kafka/trident/TridentKafkaState.class. please modify your code to use the new namespace
+20282 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/topology/FailedException to org/apache/storm/topology/FailedException in storm/kafka/trident/TridentKafkaState.class. please modify your code to use the new namespace
+20282 [main] WARN  o.a.s.h.DefaultShader - Relocating storm/trident/state/StateFactory to org/apache/storm/trident/state/StateFactory in storm/kafka/trident/TridentKafkaStateFactory.class. please modify your code to use the new namespace
+20282 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/task/IMetricsContext to org/apache/storm/task/IMetricsContext in storm/kafka/trident/TridentKafkaStateFactory.class. please modify your code to use the new namespace
+20283 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/metric/api/ICombiner to org/apache/storm/metric/api/ICombiner in storm/kafka/trident/MaxMetric.class. please modify your code to use the new namespace
+20284 [main] WARN  o.a.s.h.DefaultShader - Relocating storm/trident/spout/IPartitionedTridentSpout$Coordinator to org/apache/storm/trident/spout/IPartitionedTridentSpout$Coordinator in storm/kafka/trident/Coordinator.class. please modify your code to use the new namespace
+20284 [main] WARN  o.a.s.h.DefaultShader - Relocating storm/trident/state/BaseStateUpdater to org/apache/storm/trident/state/BaseStateUpdater in storm/kafka/trident/TridentKafkaUpdater.class. please modify your code to use the new namespace
+20285 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/metric/api/ReducedMetric to org/apache/storm/metric/api/ReducedMetric in storm/kafka/trident/TridentKafkaEmitter.class. please modify your code to use the new namespace
+20285 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/metric/api/CombinedMetric to org/apache/storm/metric/api/CombinedMetric in storm/kafka/trident/TridentKafkaEmitter.class. please modify your code to use the new namespace
+20285 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/metric/api/MeanReducer to org/apache/storm/metric/api/MeanReducer in storm/kafka/trident/TridentKafkaEmitter.class. please modify your code to use the new namespace
+20285 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/metric/api/IReducer to org/apache/storm/metric/api/IReducer in storm/kafka/trident/TridentKafkaEmitter.class. please modify your code to use the new namespace
+20290 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/metric/api/CountMetric to org/apache/storm/metric/api/CountMetric in storm/kafka/PartitionManager.class. please modify your code to use the new namespace
+20296 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/topology/base/BaseRichBolt to org/apache/storm/topology/base/BaseRichBolt in storm/kafka/bolt/KafkaBolt.class. please modify your code to use the new namespace
+20296 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/utils/TupleUtils to org/apache/storm/utils/TupleUtils in storm/kafka/bolt/KafkaBolt.class. please modify your code to use the new namespace
+39007 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/codedistributor/ICodeDistributor to org/apache/storm/codedistributor/ICodeDistributor in org/apache/storm/hdfs/ha/codedistributor/HDFSCodeDistributor.class. please modify your code to use the new namespace
+39008 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/security/auth/kerberos/AutoTGT to org/apache/storm/security/auth/kerberos/AutoTGT in org/apache/storm/hdfs/common/security/HdfsSecurityUtil.class. please modify your code to use the new namespace
+39009 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/security/auth/IAutoCredentials to org/apache/storm/security/auth/IAutoCredentials in org/apache/storm/hdfs/common/security/AutoHDFS.class. please modify your code to use the new namespace
+39009 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/security/auth/ICredentialsRenewer to org/apache/storm/security/auth/ICredentialsRenewer in org/apache/storm/hdfs/common/security/AutoHDFS.class. please modify your code to use the new namespace
+39009 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/security/INimbusCredentialPlugin to org/apache/storm/security/INimbusCredentialPlugin in org/apache/storm/hdfs/common/security/AutoHDFS.class. please modify your code to use the new namespace
+39072 [main] WARN  o.a.s.h.DefaultShader - Relocating backtype/storm/tuple/ITuple to org/apache/storm/tuple/ITuple in org/apache/storm/jdbc/trident/state/JdbcState.class. please modify your code to use the new namespace
+39072 [main] WARN  o.a.s.h.DefaultShader - Relocating storm/trident/state/BaseQueryFunction to org/apache/storm/trident/state/BaseQueryFunction in org/apache/storm/jdbc/trident/state/JdbcQuery.class. please modify your code to use the new namespace
+Running: /usr/lib/jvm/java/bin/java -client -Ddaemon.name= -Dstorm.options= -Dstorm.home=/usr/hdp/2.5.0.0-1245/storm -Dstorm.log.dir=/var/log/storm -Djava.library.path=/usr/local/lib:/opt/local/lib:/usr/lib:/usr/hdp/current/storm-client/lib -Dstorm.conf.file= -cp /usr/hdp/2.5.0.0-1245/storm/lib/ambari-metrics-storm-sink.jar:/usr/hdp/2.5.0.0-1245/storm/lib/asm-5.0.3.jar:/usr/hdp/2.5.0.0-1245/storm/lib/clojure-1.7.0.jar:/usr/hdp/2.5.0.0-1245/storm/lib/disruptor-3.3.2.jar:/usr/hdp/2.5.0.0-1245/storm/lib/kryo-3.0.3.jar:/usr/hdp/2.5.0.0-1245/storm/lib/log4j-api-2.1.jar:/usr/hdp/2.5.0.0-1245/storm/lib/log4j-core-2.1.jar:/usr/hdp/2.5.0.0-1245/storm/lib/log4j-over-slf4j-1.6.6.jar:/usr/hdp/2.5.0.0-1245/storm/lib/log4j-slf4j-impl-2.1.jar:/usr/hdp/2.5.0.0-1245/storm/lib/minlog-1.3.0.jar:/usr/hdp/2.5.0.0-1245/storm/lib/objenesis-2.1.jar:/usr/hdp/2.5.0.0-1245/storm/lib/reflectasm-1.10.1.jar:/usr/hdp/2.5.0.0-1245/storm/lib/ring-cors-0.1.5.jar:/usr/hdp/2.5.0.0-1245/storm/lib/servlet-api-2.5.jar:/usr/hdp/2.5.0.0-1245/storm/lib/slf4j-api-1.7.7.jar:/usr/hdp/2.5.0.0-1245/storm/lib/storm-core-1.0.1.2.5.0.0-1245.jar:/usr/hdp/2.5.0.0-1245/storm/lib/storm-rename-hack-1.0.1.2.5.0.0-1245.jar:/usr/hdp/2.5.0.0-1245/storm/lib/zookeeper.jar:/usr/hdp/2.5.0.0-1245/storm/extlib/atlas-plugin-classloader-0.7.0.2.5.0.0-1245.jar:/usr/hdp/2.5.0.0-1245/storm/extlib/storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:/tmp/667613ba847f11e68f610242ac110002.jar:/usr/hdp/current/storm-supervisor/conf:/usr/hdp/2.5.0.0-1245/storm/bin -Dstorm.jar=/tmp/667613ba847f11e68f610242ac110002.jar com.github.gbraccialli.telco.cdr.storm.Topology /root/telco-cdr-monitoring/conf/topology.props
+going to submit Topology:CDR
+1795 [main] INFO  o.a.s.StormSubmitter - Generated ZooKeeper secret payload for MD5-digest: -4655953735805754650:-6436698864194205142
+1872 [main] INFO  o.a.s.s.a.AuthUtils - Got AutoCreds []
+1921 [main] INFO  o.a.s.StormSubmitter - Uploading topology jar /tmp/667613ba847f11e68f610242ac110002.jar to assigned location: /hadoop/storm/nimbus/inbox/stormjar-9008763f-ac2b-4900-a1d3-dca2dc2e644f.jar
+Start uploading file '/tmp/667613ba847f11e68f610242ac110002.jar' to '/hadoop/storm/nimbus/inbox/stormjar-9008763f-ac2b-4900-a1d3-dca2dc2e644f.jar' (134325702 bytes)
+[                                                  ] 307200 / 134325702[                                                  ] 614400 / 134325702[                                                  ] 921600 / 134325702[                                                  ] 1228800 / 134325702[                                                  ] 1536000 / 134325702[                                                  ] 1843200 / 134325702[                                                  ] 2150400 / 134325702[                                                  ] 2457600 / 134325702[=                                                 ] 2764800 / 134325702[=                                                 ] 3072000 / 134325702[=                                                 ] 3379200 / 134325702[=                                                 ] 3686400 / 134325702[=                                                 ] 3993600 / 134325702[=                                                 ] 4300800 / 134325702[=                                                 ] 4608000 / 134325702[=                                                 ] 4915200 / 134325702[=                                                 ] 5222400 / 134325702[==                                                ] 5529600 / 134325702[==                                                ] 5836800 / 134325702[==                                                ] 6144000 / 134325702[==                                                ] 6451200 / 134325702[==                                                ] 6758400 / 134325702[==                                                ] 7065600 / 134325702[==                                                ] 7372800 / 134325702[==                                                ] 7680000 / 134325702[==                                                ] 7987200 / 134325702[===                                               ] 8294400 / 134325702[===                                               ] 8601600 / 134325702[===                                               ] 8908800 / 134325702[===                                               ] 9216000 / 134325702[===                                               ] 9523200 / 134325702[===                                               ] 9830400 / 134325702[===                                               ] 10137600 / 134325702[===                                               ] 10444800 / 134325702[====                                              ] 10752000 / 134325702[====                                              ] 11059200 / 134325702[====                                              ] 11366400 / 134325702[====                                              ] 11673600 / 134325702[====                                              ] 11980800 / 134325702[====                                              ] 12288000 / 134325702[====                                              ] 12595200 / 134325702[====                                              ] 12902400 / 134325702[====                                              ] 13209600 / 134325702[=====                                             ] 13516800 / 134325702[=====                                             ] 13824000 / 134325702[=====                                             ] 14131200 / 134325702[=====                                             ] 14438400 / 134325702[=====                                             ] 14745600 / 134325702[=====                                             ] 15052800 / 134325702[=====                                             ] 15360000 / 134325702[=====                                             ] 15667200 / 134325702[=====                                             ] 15974400 / 134325702[======                                            ] 16281600 / 134325702[======                                            ] 16588800 / 134325702[======                                            ] 16896000 / 134325702[======                                            ] 17203200 / 134325702[======                                            ] 17510400 / 134325702[======                                            ] 17817600 / 134325702[======                                            ] 18124800 / 134325702[======                                            ] 18432000 / 134325702[======                                            ] 18739200 / 134325702[=======                                           ] 19046400 / 134325702[=======                                           ] 19353600 / 134325702[=======                                           ] 19660800 / 134325702[=======                                           ] 19968000 / 134325702[=======                                           ] 20275200 / 134325702[=======                                           ] 20582400 / 134325702[=======                                           ] 20889600 / 134325702[=======                                           ] 21196800 / 134325702[========                                          ] 21504000 / 134325702[========                                          ] 21811200 / 134325702[========                                          ] 22118400 / 134325702[========                                          ] 22425600 / 134325702[========                                          ] 22732800 / 134325702[========                                          ] 23040000 / 134325702[========                                          ] 23347200 / 134325702[========                                          ] 23654400 / 134325702[========                                          ] 23961600 / 134325702[=========                                         ] 24268800 / 134325702[=========                                         ] 24576000 / 134325702[=========                                         ] 24883200 / 134325702[=========                                         ] 25190400 / 134325702[=========                                         ] 25497600 / 134325702[=========                                         ] 25804800 / 134325702[=========                                         ] 26112000 / 134325702[=========                                         ] 26419200 / 134325702[=========                                         ] 26726400 / 134325702[==========                                        ] 27033600 / 134325702[==========                                        ] 27340800 / 134325702[==========                                        ] 27648000 / 134325702[==========                                        ] 27955200 / 134325702[==========                                        ] 28262400 / 134325702[==========                                        ] 28569600 / 134325702[==========                                        ] 28876800 / 134325702[==========                                        ] 29184000 / 134325702[==========                                        ] 29491200 / 134325702[===========                                       ] 29798400 / 134325702[===========                                       ] 30105600 / 134325702[===========                                       ] 30412800 / 134325702[===========                                       ] 30720000 / 134325702[===========                                       ] 31027200 / 134325702[===========                                       ] 31334400 / 134325702[===========                                       ] 31641600 / 134325702[===========                                       ] 31948800 / 134325702[============                                      ] 32256000 / 134325702[============                                      ] 32563200 / 134325702[============                                      ] 32870400 / 134325702[============                                      ] 33177600 / 134325702[============                                      ] 33484800 / 134325702[============                                      ] 33792000 / 134325702[============                                      ] 34099200 / 134325702[============                                      ] 34406400 / 134325702[============                                      ] 34713600 / 134325702[=============                                     ] 35020800 / 134325702[=============                                     ] 35328000 / 134325702[=============                                     ] 35635200 / 134325702[=============                                     ] 35942400 / 134325702[=============                                     ] 36249600 / 134325702[=============                                     ] 36556800 / 134325702[=============                                     ] 36864000 / 134325702[=============                                     ] 37171200 / 134325702[=============                                     ] 37478400 / 134325702[==============                                    ] 37785600 / 134325702[==============                                    ] 38092800 / 134325702[==============                                    ] 38400000 / 134325702[==============                                    ] 38707200 / 134325702[==============                                    ] 39014400 / 134325702[==============                                    ] 39321600 / 134325702[==============                                    ] 39628800 / 134325702[==============                                    ] 39936000 / 134325702[==============                                    ] 40243200 / 134325702[===============                                   ] 40550400 / 134325702[===============                                   ] 40857600 / 134325702[===============                                   ] 41164800 / 134325702[===============                                   ] 41472000 / 134325702[===============                                   ] 41779200 / 134325702[===============                                   ] 42086400 / 134325702[===============                                   ] 42393600 / 134325702[===============                                   ] 42700800 / 134325702[================                                  ] 43008000 / 134325702[================                                  ] 43315200 / 134325702[================                                  ] 43622400 / 134325702[================                                  ] 43929600 / 134325702[================                                  ] 44236800 / 134325702[================                                  ] 44544000 / 134325702[================                                  ] 44851200 / 134325702[================                                  ] 45158400 / 134325702[================                                  ] 45465600 / 134325702[=================                                 ] 45772800 / 134325702[=================                                 ] 46080000 / 134325702[=================                                 ] 46387200 / 134325702[=================                                 ] 46694400 / 134325702[=================                                 ] 47001600 / 134325702[=================                                 ] 47308800 / 134325702[=================                                 ] 47616000 / 134325702[=================                                 ] 47923200 / 134325702[=================                                 ] 48230400 / 134325702[==================                                ] 48537600 / 134325702[==================                                ] 48844800 / 134325702[==================                                ] 49152000 / 134325702[==================                                ] 49459200 / 134325702[==================                                ] 49766400 / 134325702[==================                                ] 50073600 / 134325702[==================                                ] 50380800 / 134325702[==================                                ] 50688000 / 134325702[==================                                ] 50995200 / 134325702[===================                               ] 51302400 / 134325702[===================                               ] 51609600 / 134325702[===================                               ] 51916800 / 134325702[===================                               ] 52224000 / 134325702[===================                               ] 52531200 / 134325702[===================                               ] 52838400 / 134325702[===================                               ] 53145600 / 134325702[===================                               ] 53452800 / 134325702[====================                              ] 53760000 / 134325702[====================                              ] 54067200 / 134325702[====================                              ] 54374400 / 134325702[====================                              ] 54681600 / 134325702[====================                              ] 54988800 / 134325702[====================                              ] 55296000 / 134325702[====================                              ] 55603200 / 134325702[====================                              ] 55910400 / 134325702[====================                              ] 56217600 / 134325702[=====================                             ] 56524800 / 134325702[=====================                             ] 56832000 / 134325702[=====================                             ] 57139200 / 134325702[=====================                             ] 57446400 / 134325702[=====================                             ] 57753600 / 134325702[=====================                             ] 58060800 / 134325702[=====================                             ] 58368000 / 134325702[=====================                             ] 58675200 / 134325702[=====================                             ] 58982400 / 134325702[======================                            ] 59289600 / 134325702[======================                            ] 59596800 / 134325702[======================                            ] 59904000 / 134325702[======================                            ] 60211200 / 134325702[======================                            ] 60518400 / 134325702[======================                            ] 60825600 / 134325702[======================                            ] 61132800 / 134325702[======================                            ] 61440000 / 134325702[======================                            ] 61747200 / 134325702[=======================                           ] 62054400 / 134325702[=======================                           ] 62361600 / 134325702[=======================                           ] 62668800 / 134325702[=======================                           ] 62976000 / 134325702[=======================                           ] 63283200 / 134325702[=======================                           ] 63590400 / 134325702[=======================                           ] 63897600 / 134325702[=======================                           ] 64204800 / 134325702[========================                          ] 64512000 / 134325702[========================                          ] 64819200 / 134325702[========================                          ] 65126400 / 134325702[========================                          ] 65433600 / 134325702[========================                          ] 65740800 / 134325702[========================                          ] 66048000 / 134325702[========================                          ] 66355200 / 134325702[========================                          ] 66662400 / 134325702[========================                          ] 66969600 / 134325702[=========================                         ] 67276800 / 134325702[=========================                         ] 67584000 / 134325702[=========================                         ] 67891200 / 134325702[=========================                         ] 68198400 / 134325702[=========================                         ] 68505600 / 134325702[=========================                         ] 68812800 / 134325702[=========================                         ] 69120000 / 134325702[=========================                         ] 69427200 / 134325702[=========================                         ] 69734400 / 134325702[==========================                        ] 70041600 / 134325702[==========================                        ] 70348800 / 134325702[==========================                        ] 70656000 / 134325702[==========================                        ] 70963200 / 134325702[==========================                        ] 71270400 / 134325702[==========================                        ] 71577600 / 134325702[==========================                        ] 71884800 / 134325702[==========================                        ] 72192000 / 134325702[==========================                        ] 72499200 / 134325702[===========================                       ] 72806400 / 134325702[===========================                       ] 73113600 / 134325702[===========================                       ] 73420800 / 134325702[===========================                       ] 73728000 / 134325702[===========================                       ] 74035200 / 134325702[===========================                       ] 74342400 / 134325702[===========================                       ] 74649600 / 134325702[===========================                       ] 74956800 / 134325702[============================                      ] 75264000 / 134325702[============================                      ] 75571200 / 134325702[============================                      ] 75878400 / 134325702[============================                      ] 76185600 / 134325702[============================                      ] 76492800 / 134325702[============================                      ] 76800000 / 134325702[============================                      ] 77107200 / 134325702[============================                      ] 77414400 / 134325702[============================                      ] 77721600 / 134325702[=============================                     ] 78028800 / 134325702[=============================                     ] 78336000 / 134325702[=============================                     ] 78643200 / 134325702[=============================                     ] 78950400 / 134325702[=============================                     ] 79257600 / 134325702[=============================                     ] 79564800 / 134325702[=============================                     ] 79872000 / 134325702[=============================                     ] 80179200 / 134325702[=============================                     ] 80486400 / 134325702[==============================                    ] 80793600 / 134325702[==============================                    ] 81100800 / 134325702[==============================                    ] 81408000 / 134325702[==============================                    ] 81715200 / 134325702[==============================                    ] 82022400 / 134325702[==============================                    ] 82329600 / 134325702[==============================                    ] 82636800 / 134325702[==============================                    ] 82944000 / 134325702[==============================                    ] 83251200 / 134325702[===============================                   ] 83558400 / 134325702[===============================                   ] 83865600 / 134325702[===============================                   ] 84172800 / 134325702[===============================                   ] 84480000 / 134325702[===============================                   ] 84787200 / 134325702[===============================                   ] 85094400 / 134325702[===============================                   ] 85401600 / 134325702[===============================                   ] 85708800 / 134325702[================================                  ] 86016000 / 134325702[================================                  ] 86323200 / 134325702[================================                  ] 86630400 / 134325702[================================                  ] 86937600 / 134325702[================================                  ] 87244800 / 134325702[================================                  ] 87552000 / 134325702[================================                  ] 87859200 / 134325702[================================                  ] 88166400 / 134325702[================================                  ] 88473600 / 134325702[=================================                 ] 88780800 / 134325702[=================================                 ] 89088000 / 134325702[=================================                 ] 89395200 / 134325702[=================================                 ] 89702400 / 134325702[=================================                 ] 90009600 / 134325702[=================================                 ] 90316800 / 134325702[=================================                 ] 90624000 / 134325702[=================================                 ] 90931200 / 134325702[=================================                 ] 91238400 / 134325702[==================================                ] 91545600 / 134325702[==================================                ] 91852800 / 134325702[==================================                ] 92160000 / 134325702[==================================                ] 92467200 / 134325702[==================================                ] 92774400 / 134325702[==================================                ] 93081600 / 134325702[==================================                ] 93388800 / 134325702[==================================                ] 93696000 / 134325702[==================================                ] 94003200 / 134325702[===================================               ] 94310400 / 134325702[===================================               ] 94617600 / 134325702[===================================               ] 94924800 / 134325702[===================================               ] 95232000 / 134325702[===================================               ] 95539200 / 134325702[===================================               ] 95846400 / 134325702[===================================               ] 96153600 / 134325702[===================================               ] 96460800 / 134325702[====================================              ] 96768000 / 134325702[====================================              ] 97075200 / 134325702[====================================              ] 97382400 / 134325702[====================================              ] 97689600 / 134325702[====================================              ] 97996800 / 134325702[====================================              ] 98304000 / 134325702[====================================              ] 98611200 / 134325702[====================================              ] 98918400 / 134325702[====================================              ] 99225600 / 134325702[=====================================             ] 99532800 / 134325702[=====================================             ] 99840000 / 134325702[=====================================             ] 100147200 / 134325702[=====================================             ] 100454400 / 134325702[=====================================             ] 100761600 / 134325702[=====================================             ] 101068800 / 134325702[=====================================             ] 101376000 / 134325702[=====================================             ] 101683200 / 134325702[=====================================             ] 101990400 / 134325702[======================================            ] 102297600 / 134325702[======================================            ] 102604800 / 134325702[======================================            ] 102912000 / 134325702[======================================            ] 103219200 / 134325702[======================================            ] 103526400 / 134325702[======================================            ] 103833600 / 134325702[======================================            ] 104140800 / 134325702[======================================            ] 104448000 / 134325702[======================================            ] 104755200 / 134325702[=======================================           ] 105062400 / 134325702[=======================================           ] 105369600 / 134325702[=======================================           ] 105676800 / 134325702[=======================================           ] 105984000 / 134325702[=======================================           ] 106291200 / 134325702[=======================================           ] 106598400 / 134325702[=======================================           ] 106905600 / 134325702[=======================================           ] 107212800 / 134325702[========================================          ] 107520000 / 134325702[========================================          ] 107827200 / 134325702[========================================          ] 108134400 / 134325702[========================================          ] 108441600 / 134325702[========================================          ] 108748800 / 134325702[========================================          ] 109056000 / 134325702[========================================          ] 109363200 / 134325702[========================================          ] 109670400 / 134325702[========================================          ] 109977600 / 134325702[=========================================         ] 110284800 / 134325702[=========================================         ] 110592000 / 134325702[=========================================         ] 110899200 / 134325702[=========================================         ] 111206400 / 134325702[=========================================         ] 111513600 / 134325702[=========================================         ] 111820800 / 134325702[=========================================         ] 112128000 / 134325702[=========================================         ] 112435200 / 134325702[=========================================         ] 112742400 / 134325702[==========================================        ] 113049600 / 134325702[==========================================        ] 113356800 / 134325702[==========================================        ] 113664000 / 134325702[==========================================        ] 113971200 / 134325702[==========================================        ] 114278400 / 134325702[==========================================        ] 114585600 / 134325702[==========================================        ] 114892800 / 134325702[==========================================        ] 115200000 / 134325702[==========================================        ] 115507200 / 134325702[===========================================       ] 115814400 / 134325702[===========================================       ] 116121600 / 134325702[===========================================       ] 116428800 / 134325702[===========================================       ] 116736000 / 134325702[===========================================       ] 117043200 / 134325702[===========================================       ] 117350400 / 134325702[===========================================       ] 117657600 / 134325702[===========================================       ] 117964800 / 134325702[============================================      ] 118272000 / 134325702[============================================      ] 118579200 / 134325702[============================================      ] 118886400 / 134325702[============================================      ] 119193600 / 134325702[============================================      ] 119500800 / 134325702[============================================      ] 119808000 / 134325702[============================================      ] 120115200 / 134325702[============================================      ] 120422400 / 134325702[============================================      ] 120729600 / 134325702[=============================================     ] 121036800 / 134325702[=============================================     ] 121344000 / 134325702[=============================================     ] 121651200 / 134325702[=============================================     ] 121958400 / 134325702[=============================================     ] 122265600 / 134325702[=============================================     ] 122572800 / 134325702[=============================================     ] 122880000 / 134325702[=============================================     ] 123187200 / 134325702[=============================================     ] 123494400 / 134325702[==============================================    ] 123801600 / 134325702[==============================================    ] 124108800 / 134325702[==============================================    ] 124416000 / 134325702[==============================================    ] 124723200 / 134325702[==============================================    ] 125030400 / 134325702[==============================================    ] 125337600 / 134325702[==============================================    ] 125644800 / 134325702[==============================================    ] 125952000 / 134325702[==============================================    ] 126259200 / 134325702[===============================================   ] 126566400 / 134325702[===============================================   ] 126873600 / 134325702[===============================================   ] 127180800 / 134325702[===============================================   ] 127488000 / 134325702[===============================================   ] 127795200 / 134325702[===============================================   ] 128102400 / 134325702[===============================================   ] 128409600 / 134325702[===============================================   ] 128716800 / 134325702[================================================  ] 129024000 / 134325702[================================================  ] 129331200 / 134325702[================================================  ] 129638400 / 134325702[================================================  ] 129945600 / 134325702[================================================  ] 130252800 / 134325702[================================================  ] 130560000 / 134325702[================================================  ] 130867200 / 134325702[================================================  ] 131174400 / 134325702[================================================  ] 131481600 / 134325702[================================================= ] 131788800 / 134325702[================================================= ] 132096000 / 134325702[================================================= ] 132403200 / 134325702[================================================= ] 132710400 / 134325702[================================================= ] 133017600 / 134325702[================================================= ] 133324800 / 134325702[================================================= ] 133632000 / 134325702[================================================= ] 133939200 / 134325702[================================================= ] 134246400 / 134325702[==================================================] 134325702 / 134325702[==================================================] 134325702 / 134325702
+File '/tmp/667613ba847f11e68f610242ac110002.jar' uploaded to '/hadoop/storm/nimbus/inbox/stormjar-9008763f-ac2b-4900-a1d3-dca2dc2e644f.jar' (134325702 bytes)
+3272 [main] INFO  o.a.s.StormSubmitter - Successfully uploaded topology jar to assigned location: /hadoop/storm/nimbus/inbox/stormjar-9008763f-ac2b-4900-a1d3-dca2dc2e644f.jar
+3276 [main] INFO  o.a.s.StormSubmitter - Submitting topology CDR in distributed mode with conf {"storm.zookeeper.topology.auth.scheme":"digest","storm.zookeeper.topology.auth.payload":"-4655953735805754650:-6436698864194205142","topology.workers":1}
+3851 [main] INFO  o.a.s.StormSubmitter - Finished submitting topology: CDR
+3852 [main] INFO  o.a.s.StormSubmitter - Initializing the registered ISubmitterHook [org.apache.atlas.storm.hook.StormAtlasHook]
+4095 [main] INFO  o.a.a.ApplicationProperties - Looking for atlas-application.properties in classpath
+4096 [main] INFO  o.a.a.ApplicationProperties - Loading atlas-application.properties from file:/etc/storm/2.5.0.0-1245/0/atlas-application.properties
+log4j:WARN No appenders could be found for logger (org.apache.atlas.ApplicationProperties).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+4578 [main] INFO  o.a.a.h.AtlasHook - Created Atlas Hook
+4658 [main] INFO  o.a.s.StormSubmitter - Invoking the registered ISubmitterHook [org.apache.atlas.storm.hook.StormAtlasHook]
+4658 [main] INFO  o.a.a.s.h.StormAtlasHook - Collecting metadata for a new storm topology: CDR
+4678 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createDataSet(StormAtlasHook.java:183) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyOutputs(StormAtlasHook.java:171) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyDataSets(StormAtlasHook.java:136) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:90) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+4690 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createDataSet(StormAtlasHook.java:183) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyOutputs(StormAtlasHook.java:171) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyDataSets(StormAtlasHook.java:136) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:90) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+4690 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createDataSet(StormAtlasHook.java:183) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyOutputs(StormAtlasHook.java:171) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyDataSets(StormAtlasHook.java:136) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:90) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+4690 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createDataSet(StormAtlasHook.java:183) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyOutputs(StormAtlasHook.java:171) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyDataSets(StormAtlasHook.java:136) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:90) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+4691 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createDataSet(StormAtlasHook.java:183) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyOutputs(StormAtlasHook.java:171) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyDataSets(StormAtlasHook.java:136) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:90) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+4692 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createDataSet(StormAtlasHook.java:183) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyOutputs(StormAtlasHook.java:171) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyDataSets(StormAtlasHook.java:136) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:90) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+4693 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createDataSet(StormAtlasHook.java:183) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyOutputs(StormAtlasHook.java:171) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyDataSets(StormAtlasHook.java:136) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:90) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+4693 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createDataSet(StormAtlasHook.java:183) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyOutputs(StormAtlasHook.java:171) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyDataSets(StormAtlasHook.java:136) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:90) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+4694 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createDataSet(StormAtlasHook.java:183) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyOutputs(StormAtlasHook.java:171) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyDataSets(StormAtlasHook.java:136) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:90) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+4694 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createDataSet(StormAtlasHook.java:183) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyOutputs(StormAtlasHook.java:171) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addTopologyDataSets(StormAtlasHook.java:136) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:90) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+5731 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createBoltInstance(StormAtlasHook.java:326) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addBolts(StormAtlasHook.java:311) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createTopologyGraph(StormAtlasHook.java:274) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:96) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+5731 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createBoltInstance(StormAtlasHook.java:326) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addBolts(StormAtlasHook.java:311) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createTopologyGraph(StormAtlasHook.java:274) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:96) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+5732 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createBoltInstance(StormAtlasHook.java:326) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addBolts(StormAtlasHook.java:311) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createTopologyGraph(StormAtlasHook.java:274) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:96) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+5732 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createBoltInstance(StormAtlasHook.java:326) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addBolts(StormAtlasHook.java:311) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createTopologyGraph(StormAtlasHook.java:274) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:96) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+5733 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createBoltInstance(StormAtlasHook.java:326) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addBolts(StormAtlasHook.java:311) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createTopologyGraph(StormAtlasHook.java:274) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:96) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+5734 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createBoltInstance(StormAtlasHook.java:326) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addBolts(StormAtlasHook.java:311) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createTopologyGraph(StormAtlasHook.java:274) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:96) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+5735 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createBoltInstance(StormAtlasHook.java:326) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addBolts(StormAtlasHook.java:311) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createTopologyGraph(StormAtlasHook.java:274) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:96) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+5735 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createBoltInstance(StormAtlasHook.java:326) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addBolts(StormAtlasHook.java:311) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createTopologyGraph(StormAtlasHook.java:274) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:96) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+5736 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createBoltInstance(StormAtlasHook.java:326) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addBolts(StormAtlasHook.java:311) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createTopologyGraph(StormAtlasHook.java:274) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:96) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+5736 [main] WARN  o.a.a.s.h.StormTopologyUtil - Exception while constructing topology
+java.lang.NullPointerException
+	at org.apache.storm.jdbc.common.Column.hashCode(Column.java:99) ~[667613ba847f11e68f610242ac110002.jar:?]
+	at java.util.HashMap.hash(HashMap.java:362) ~[?:1.7.0_111]
+	at java.util.HashMap.put(HashMap.java:492) ~[?:1.7.0_111]
+	at java.util.HashSet.add(HashSet.java:217) ~[?:1.7.0_111]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:141) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getString(StormTopologyUtil.java:224) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:191) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormTopologyUtil.getFieldValues(StormTopologyUtil.java:198) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createBoltInstance(StormAtlasHook.java:326) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.addBolts(StormAtlasHook.java:311) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.createTopologyGraph(StormAtlasHook.java:274) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:96) [storm-bridge-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.atlas.storm.hook.StormAtlasHook.notify(StormAtlasHook.java:57) [storm-bridge-shim-0.7.0.2.5.0.0-1245.jar:0.7.0.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.invokeSubmitterHook(StormSubmitter.java:284) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyAs(StormSubmitter.java:257) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopology(StormSubmitter.java:310) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:346) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at org.apache.storm.StormSubmitter.submitTopologyWithProgressBar(StormSubmitter.java:327) [storm-core-1.0.1.2.5.0.0-1245.jar:1.0.1.2.5.0.0-1245]
+	at com.github.gbraccialli.telco.cdr.storm.Topology.main(Topology.java:191) [667613ba847f11e68f610242ac110002.jar:?]
+5925 [main] INFO  o.a.a.h.AtlasHook - Adding entity for type: kafka_topic
+6992 [main] INFO  o.a.a.h.AtlasHook - Adding entity for type: hive_db
+6994 [main] INFO  o.a.a.h.AtlasHook - Adding entity for type: hive_table
+6996 [main] INFO  o.a.a.h.AtlasHook - Adding entity for type: storm_topology
+7451 [main] INFO  o.a.k.c.p.ProducerConfig - ProducerConfig values: 
+	interceptor.classes = null
+	request.timeout.ms = 30000
+	ssl.truststore.password = null
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	batch.size = 16384
+	ssl.keymanager.algorithm = SunX509
+	receive.buffer.bytes = 32768
+	ssl.key.password = null
+	ssl.cipher.suites = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.service.name = null
+	ssl.provider = null
+	max.in.flight.requests.per.connection = 5
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	bootstrap.servers = [sandbox.hortonworks.com:6667]
+	client.id = 
+	max.request.size = 1048576
+	acks = 1
+	linger.ms = 0
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	metadata.fetch.timeout.ms = 60000
+	ssl.endpoint.identification.algorithm = null
+	ssl.keystore.location = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	block.on.buffer.full = false
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	security.protocol = PLAINTEXT
+	metadata.max.age.ms = 300000
+	ssl.protocol = TLS
+	sasl.kerberos.min.time.before.relogin = 60000
+	timeout.ms = 30000
+	connections.max.idle.ms = 540000
+	ssl.trustmanager.algorithm = PKIX
+	metric.reporters = []
+	ssl.truststore.type = JKS
+	compression.type = none
+	retries = 0
+	max.block.ms = 60000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	send.buffer.bytes = 131072
+	reconnect.backoff.ms = 50
+	metrics.num.samples = 2
+	ssl.keystore.type = JKS
+
+7494 [main] INFO  o.a.k.c.p.ProducerConfig - ProducerConfig values: 
+	interceptor.classes = null
+	request.timeout.ms = 30000
+	ssl.truststore.password = null
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	batch.size = 16384
+	ssl.keymanager.algorithm = SunX509
+	receive.buffer.bytes = 32768
+	ssl.key.password = null
+	ssl.cipher.suites = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.service.name = null
+	ssl.provider = null
+	max.in.flight.requests.per.connection = 5
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	bootstrap.servers = [sandbox.hortonworks.com:6667]
+	client.id = producer-1
+	max.request.size = 1048576
+	acks = 1
+	linger.ms = 0
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	metadata.fetch.timeout.ms = 60000
+	ssl.endpoint.identification.algorithm = null
+	ssl.keystore.location = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	block.on.buffer.full = false
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	security.protocol = PLAINTEXT
+	metadata.max.age.ms = 300000
+	ssl.protocol = TLS
+	sasl.kerberos.min.time.before.relogin = 60000
+	timeout.ms = 30000
+	connections.max.idle.ms = 540000
+	ssl.trustmanager.algorithm = PKIX
+	metric.reporters = []
+	ssl.truststore.type = JKS
+	compression.type = none
+	retries = 0
+	max.block.ms = 60000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	send.buffer.bytes = 131072
+	reconnect.backoff.ms = 50
+	metrics.num.samples = 2
+	ssl.keystore.type = JKS
+
+7495 [main] WARN  o.a.k.c.p.ProducerConfig - The configuration zookeeper.sync.time.ms = 20 was supplied but isn't a known config.
+7495 [main] WARN  o.a.k.c.p.ProducerConfig - The configuration hook.group.id = atlas was supplied but isn't a known config.
+7495 [main] WARN  o.a.k.c.p.ProducerConfig - The configuration zookeeper.connection.timeout.ms = 200 was supplied but isn't a known config.
+7495 [main] WARN  o.a.k.c.p.ProducerConfig - The configuration zookeeper.session.timeout.ms = 400 was supplied but isn't a known config.
+7495 [main] WARN  o.a.k.c.p.ProducerConfig - The configuration zookeeper.connect = sandbox.hortonworks.com:2181 was supplied but isn't a known config.
+7495 [main] WARN  o.a.k.c.p.ProducerConfig - The configuration key.deserializer = org.apache.kafka.common.serialization.StringDeserializer was supplied but isn't a known config.
+7495 [main] WARN  o.a.k.c.p.ProducerConfig - The configuration auto.offset.reset = smallest was supplied but isn't a known config.
+7495 [main] WARN  o.a.k.c.p.ProducerConfig - The configuration value.deserializer = org.apache.kafka.common.serialization.StringDeserializer was supplied but isn't a known config.
+7495 [main] WARN  o.a.k.c.p.ProducerConfig - The configuration partition.assignment.strategy = roundrobin was supplied but isn't a known config.
+7497 [main] INFO  o.a.k.c.u.AppInfoParser - Kafka version : 0.10.0.2.5.0.0-1245
+7497 [main] INFO  o.a.k.c.u.AppInfoParser - Kafka commitId : dae559f56f07e2cd
