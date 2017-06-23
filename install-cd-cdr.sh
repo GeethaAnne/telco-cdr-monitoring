@@ -267,3 +267,4 @@ length=${#TARGETS[@]}
 
 echo "****** adding Solr service to Ambari service stack ******"
 git clone https://github.com/abajwa-hw/solr-stack.git /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/SOLR
+exit 0
