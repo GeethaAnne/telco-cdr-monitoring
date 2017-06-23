@@ -89,7 +89,8 @@ fi
 waitForNifiServlet
 echo "*********************************Deploying NIFI Template..."
 deployTemplateToNifi
-
+echo "*********************************Starting NIFI Flow ..."
+startNifiFlow
 waitForNifiServlet () {
        	LOOPESCAPE="false"
        	until [ "$LOOPESCAPE" == true ]; do
@@ -190,7 +191,7 @@ waitForNifiServlet () {
 # Import NIFI Template
 deployTemplateToNifi () {
        	echo "*********************************Importing NIFI Template..."
-       	TEMPLATEID=$(curl -v -F template=@"$ROOT_PATH/Nifi/template/BiologicsManufacturingFlow.xml" -X POST http://$AMBARI_HOST:9090/nifi-api/process-groups/root/templates/upload | grep -Po '<id>([a-z0-9-]+)' | grep -Po '>([a-z0-9-]+)' | grep -Po '([a-z0-9-]+)')
+       	TEMPLATEID=$(curl -v -F template=@"$ROOT_PATH/Nifi/cdr-nifi-telco.xml" -X POST http://$AMBARI_HOST:9090/nifi-api/process-groups/root/templates/upload | grep -Po '<id>([a-z0-9-]+)' | grep -Po '>([a-z0-9-]+)' | grep -Po '([a-z0-9-]+)')
        	sleep 1
 
        	echo "*********************************Instantiating NIFI Flow..."
@@ -211,6 +212,58 @@ ROOT_GROUP_REVISION=$(curl -X GET http://$AMBARI_HOST:9090/nifi-api/process-grou
 		curl -d $PAYLOAD  -H "Content-Type: application/json" -X PUT http://$AMBARI_HOST:9090/nifi-api/process-groups/$ROOT_GROUP_ID
 		sleep 1
 }
+startNifiFlow () {
+    echo "*********************************Starting NIFI Flow..."
+	if [ "$INTVERSION" -gt 24 ]; then	     
+    	# Start NIFI Flow HDF 2.x
+    	TARGETS=($(curl -u admin:admin -i -X GET http://$AMBARI_HOST:9090/nifi-api/process-groups/root/processors | grep -Po '\"uri\":\"([a-z0-9-://.]+)' | grep -Po '(?!.*\")([a-z0-9-://.]+)'))
+       	length=${#TARGETS[@]}
+       	echo $length
+       	echo ${TARGETS[0]}
+       	
+       	for ((i = 0; i < $length; i++))
+       	do
+       		ID=$(curl -u admin:admin -i -X GET ${TARGETS[i]} |grep -Po '"id":"([a-zA-z0-9\-]+)'|grep -Po ':"([a-zA-z0-9\-]+)'|grep -Po '([a-zA-z0-9\-]+)'|head -1)
+       		REVISION=$(curl -u admin:admin -i -X GET ${TARGETS[i]} |grep -Po '\"version\":([0-9]+)'|grep -Po '([0-9]+)')
+       		TYPE=$(curl -u admin:admin -i -X GET ${TARGETS[i]} |grep -Po '"type":"([a-zA-Z0-9\-.]+)' |grep -Po ':"([a-zA-Z0-9\-.]+)' |grep -Po '([a-zA-Z0-9\-.]+)' |head -1)
+       		echo "Current Processor Path: ${TARGETS[i]}"
+       		echo "Current Processor Revision: $REVISION"
+       		echo "Current Processor ID: $ID"
+       		echo "Current Processor TYPE: $TYPE"
+
+       		if ! [ -z $(echo $TYPE|grep "PutKafka") ] || ! [ -z $(echo $TYPE|grep "PublishKafka") ]; then
+       			echo "***************************This is a PutKafka Processor"
+       			echo "***************************Updating Kafka Broker Porperty and Activating Processor..."
+       			if ! [ -z $(echo $TYPE|grep "PutKafka") ]; then
+                    PAYLOAD=$(echo "{\"id\":\"$ID\",\"revision\":{\"version\":$REVISION},\"component\":{\"id\":\"$ID\",\"config\":{\"properties\":{\"Known Brokers\":\"$AMBARI_HOST:6667\"}},\"state\":\"RUNNING\"}}")
+                else
+                    PAYLOAD=$(echo "{\"id\":\"$ID\",\"revision\":{\"version\":$REVISION},\"component\":{\"id\":\"$ID\",\"config\":{\"properties\":{\"bootstrap.servers\":\"$AMBARI_HOST:6667\"}},\"state\":\"RUNNING\"}}")
+                fi
+       		else
+       			echo "***************************Activating Processor..."
+       				PAYLOAD=$(echo "{\"id\":\"$ID\",\"revision\":{\"version\":$REVISION},\"component\":{\"id\":\"$ID\",\"state\":\"RUNNING\"}}")
+			fi
+       		echo "$PAYLOAD"
+       		
+       		curl -u admin:admin -i -H "Content-Type:application/json" -d "${PAYLOAD}" -X PUT ${TARGETS[i]}
+       	done
+	else       	
+       	# Start NIFI Flow HDF 1.x
+		echo "*********************************Starting NIFI Flow..."
+		REVISION=$(curl -u admin:admin  -i -X GET http://$AMBARI_HOST:9090/nifi-api/controller/revision |grep -Po '\"version\":([0-9]+)' | grep -Po '([0-9]+)')
+
+		TARGETS=($(curl -u admin:admin -i -X GET http://$AMBARI_HOST:9090/nifi-api/controller/process-groups/root/processors | grep -Po '\"uri\":\"([a-z0-9-://.]+)' | grep -Po '(?!.*\")([a-z0-9-://.]+)'))
+length=${#TARGETS[@]}
+
+		for ((i = 0; i != length; i++)); do
+   			echo curl -u admin:admin -i -X GET ${TARGETS[i]}
+   			echo "Current Revision: " $REVISION
+   			curl -u admin:admin -i -H "Content-Type:application/x-www-form-urlencoded" -d "state=RUNNING&version=$REVISION" -X PUT ${TARGETS[i]}
+		   REVISION=$(curl -u admin:admin  -i -X GET http://$AMBARI_HOST:9090/nifi-api/controller/revision |grep -Po '\"version\":([0-9]+)' | grep -Po '([0-9]+)')
+		done
+	fi
+}
+
 
 echo "****** adding Solr service to Ambari service stack ******"
 git clone https://github.com/abajwa-hw/solr-stack.git /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/SOLR
