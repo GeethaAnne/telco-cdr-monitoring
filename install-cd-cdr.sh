@@ -13,6 +13,7 @@ export ZK_HOST=$ZK_HOST
 
 # Install Maven
 echo "*********************************Installing Maven..."
+yum install wget
 wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
 yum install -y apache-maven
 
@@ -211,5 +212,5 @@ ROOT_GROUP_REVISION=$(curl -X GET http://$AMBARI_HOST:9090/nifi-api/process-grou
 		sleep 1
 }
 
-
-
+echo "****** adding Solr service to Ambari service stack ******"
+git clone https://github.com/abajwa-hw/solr-stack.git /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/SOLR
