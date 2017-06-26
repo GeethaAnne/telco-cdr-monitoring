@@ -1,8 +1,13 @@
 #!/bin/bash
 export ROOT_PATH=$(pwd)
 echo "*********************************ROOT PATH IS: $ROOT_PATH"
+# export INTVERSION=$(echo $VERSION*10 | bc | grep -Po '([0-9][0-9])')
+# echo "*********************************HDP VERSION IS: $VERSION"
 
 export VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
+export INTVERSION=$(echo $VERSION*10 | bc | grep -Po '([0-9][0-9])')
+echo "*********************************HDP VERSION IS: $VERSION"
+
 export AMBARI_HOST=$(hostname -f)
 echo "*********************************AMABRI HOST IS: $AMBARI_HOST"
 
@@ -100,7 +105,7 @@ installNifiService () {
        	sleep 2
        	echo "*********************************Adding NIFI MASTER role to Host..."
        	# Add NIFI Master role to Sandbox host
- #      	curl -u admin:admin -H "X-Requested-By:ambari" -i -X POST http://$AMBARI_HOST:8080/api/v1/clusters/$CLUSTER_NAME/hosts/$AMBARI_HOST/host_components/NIFI_MASTER
+      	curl -u admin:admin -H "X-Requested-By:ambari" -i -X POST http://$AMBARI_HOST:8080/api/v1/clusters/$CLUSTER_NAME/hosts/$AMBARI_HOST/host_components/NIFI_MASTER
 
        	sleep 30
        	echo "*********************************Installing NIFI Service"
@@ -245,7 +250,7 @@ else
         echo "*********************************NIFI Service Started..."
 fi
 
-waitForNifiServlet
+# waitForNifiServlet
 echo "*********************************Deploying NIFI Template..."
 deployTemplateToNifi
 echo "*********************************Starting NIFI Flow ..."
