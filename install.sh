@@ -12,10 +12,10 @@ ZK_HOST=$AMBARI_HOST
 export ZK_HOST=$ZK_HOST
 
 # Install Maven
-echo "*********************************Installing Maven..."
-yum install wget
-wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
-yum install -y apache-maven
+# echo "*********************************Installing Maven..."
+# yum install wget
+# wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+# yum install -y apache-maven
 
 serviceExists () {
        	SERVICE=$1
@@ -60,51 +60,6 @@ startService (){
        	fi
 }
 
-NIFI_SERVICE_PRESENT=$(serviceExists NIFI)
-if [[ "$NIFI_SERVICE_PRESENT" == 0 ]]; then
-       	echo "*********************************NIFI Service Not Present, Installing..."
-       	getLatestNifiBits
-       	ambari-server restart
-       	waitForAmbari
-       	installNifiService
-
-startService NIFI
-else
-       	echo "*********************************NIFI Service Already Installed"
-fi
-NIFI_STATUS=$(getServiceStatus NIFI)
-echo "*********************************Checking NIFI status..."
-if ! [[ $NIFI_STATUS == STARTED || $NIFI_STATUS == INSTALLED ]]; then
-       	echo "*********************************NIFI is in a transitional state, waiting..."
-       	waitForService NIFI
-       	echo "*********************************NIFI has entered a ready state..."
-fi
-
-if [[ $NIFI_STATUS == INSTALLED ]]; then
-       	startService NIFI
-else
-       	echo "*********************************NIFI Service Started..."
-fi
-
-waitForNifiServlet
-echo "*********************************Deploying NIFI Template..."
-deployTemplateToNifi
-echo "*********************************Starting NIFI Flow ..."
-startNifiFlow
-waitForNifiServlet () {
-       	LOOPESCAPE="false"
-       	until [ "$LOOPESCAPE" == true ]; do
-       		TASKSTATUS=$(curl -u admin:admin -i -X GET http://$AMBARI_HOST:9090/nifi-api/controller | grep -Po 'OK')
-       		if [ "$TASKSTATUS" == OK ]; then
-               		LOOPESCAPE="true"
-       		else
-               		TASKSTATUS="PENDING"
-       		fi
-       		echo "*********************************Waiting for NIFI Servlet..."
-       		echo "*********************************NIFI Servlet Status... " $TASKSTATUS
-       		sleep 2
-       	done
-}
 getLatestNifiBits () {
        	if [ "$INTVERSION" -gt 22 ]; then
        	echo "*********************************Removing Current Version of NIFI..."
@@ -145,7 +100,7 @@ installNifiService () {
        	sleep 2
        	echo "*********************************Adding NIFI MASTER role to Host..."
        	# Add NIFI Master role to Sandbox host
-       	curl -u admin:admin -H "X-Requested-By:ambari" -i -X POST http://$AMBARI_HOST:8080/api/v1/clusters/$CLUSTER_NAME/hosts/$AMBARI_HOST/host_components/NIFI_MASTER
+ #      	curl -u admin:admin -H "X-Requested-By:ambari" -i -X POST http://$AMBARI_HOST:8080/api/v1/clusters/$CLUSTER_NAME/hosts/$AMBARI_HOST/host_components/NIFI_MASTER
 
        	sleep 30
        	echo "*********************************Installing NIFI Service"
@@ -264,7 +219,37 @@ length=${#TARGETS[@]}
 	fi
 }
 
+NIFI_SERVICE_PRESENT=$(serviceExists NIFI)
+if [[ "$NIFI_SERVICE_PRESENT" == 0 ]]; then
+        echo "*********************************NIFI Service Not Present, Installing..."
+        getLatestNifiBits
+        ambari-server restart
+        # waitForAmbari
+        installNifiService
 
+startService NIFI
+else
+        echo "*********************************NIFI Service Already Installed"
+fi
+NIFI_STATUS=$(getServiceStatus NIFI)
+echo "*********************************Checking NIFI status..."
+# if ! [[ $NIFI_STATUS == STARTED || $NIFI_STATUS == INSTALLED ]]; then
+  #      echo "*********************************NIFI is in a transitional state, waiting..."
+   #     waitForService NIFI
+    #    echo "*********************************NIFI has entered a ready state..."
+# fi
+
+if [[ $NIFI_STATUS == INSTALLED ]]; then
+        startService NIFI
+else
+        echo "*********************************NIFI Service Started..."
+fi
+
+waitForNifiServlet
+echo "*********************************Deploying NIFI Template..."
+deployTemplateToNifi
+echo "*********************************Starting NIFI Flow ..."
+startNifiFlow
 echo "****** adding Solr service to Ambari service stack ******"
 git clone https://github.com/abajwa-hw/solr-stack.git /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/SOLR
 exit 0
