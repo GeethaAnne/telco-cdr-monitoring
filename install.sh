@@ -111,14 +111,14 @@ installNifiService () {
        	echo "*********************************Installing NIFI Service"
        	# Install NIFI Service
        	TASKID=$(curl -u admin:admin -H "X-Requested-By:ambari" -i -X PUT -d '{"RequestInfo": {"context" :"Install Nifi"}, "Body": {"ServiceInfo": {"maintenance_state" : "OFF", "state": "INSTALLED"}}}' http://$AMBARI_HOST:8080/api/v1/clusters/$CLUSTER_NAME/services/NIFI | grep "id" | grep -Po '([0-9]+)')
-       	
+
        	if [ -z $TASKID ]; then
        		until ! [ -z $TASKID ]; do
        			TASKID=$(curl -u admin:admin -H "X-Requested-By:ambari" -i -X PUT -d '{"RequestInfo": {"context" :"Install Nifi"}, "Body": {"ServiceInfo": {"maintenance_state" : "OFF", "state": "INSTALLED"}}}' http://$AMBARI_HOST:8080/api/v1/clusters/$CLUSTER_NAME/services/NIFI | grep "id" | grep -Po '([0-9]+)')
        		 	echo "*********************************AMBARI TaskID " $TASKID
        		done
        	fi
-       	
+
        	echo "*********************************AMBARI TaskID " $TASKID
        	sleep 2
        	LOOPESCAPE="false"
@@ -158,29 +158,29 @@ deployTemplateToNifi () {
        	# Instantiate NIFI Template
        	curl -u admin:admin -i -H "Content-Type:application/json" -d "{\"templateId\":\"$TEMPLATEID\",\"originX\":100,\"originY\":100}" -X POST http://$AMBARI_HOST:9090/nifi-api/process-groups/root/template-instance
        	sleep 1
-       	
+
        	# Rename NIFI Root Group
 		echo "*********************************Renaming Nifi Root Group..."
 ROOT_GROUP_REVISION=$(curl -X GET http://$AMBARI_HOST:9090/nifi-api/process-groups/root |grep -Po '\"version\":([0-9]+)'|grep -Po '([0-9]+)')
-		
+
 		sleep 1
 		ROOT_GROUP_ID=$(curl -X GET http://$AMBARI_HOST:9090/nifi-api/process-groups/root|grep -Po '("component":{"id":")([0-9a-zA-z\-]+)'| grep -Po '(:"[0-9a-zA-z\-]+)'| grep -Po '([0-9a-zA-z\-]+)')
 
 		PAYLOAD=$(echo "{\"id\":\"$ROOT_GROUP_ID\",\"revision\":{\"version\":$ROOT_GROUP_REVISION},\"component\":{\"id\":\"$ROOT_GROUP_ID\",\"name\":\"Biologics-Demo\"}}")
-		
+
 		sleep 1
 		curl -d $PAYLOAD  -H "Content-Type: application/json" -X PUT http://$AMBARI_HOST:9090/nifi-api/process-groups/$ROOT_GROUP_ID
 		sleep 1
 }
 startNifiFlow () {
     echo "*********************************Starting NIFI Flow..."
-	if [ "$INTVERSION" -gt 24 ]; then	     
+	if [ "$INTVERSION" -gt 24 ]; then
     	# Start NIFI Flow HDF 2.x
     	TARGETS=($(curl -u admin:admin -i -X GET http://$AMBARI_HOST:9090/nifi-api/process-groups/root/processors | grep -Po '\"uri\":\"([a-z0-9-://.]+)' | grep -Po '(?!.*\")([a-z0-9-://.]+)'))
        	length=${#TARGETS[@]}
        	echo $length
        	echo ${TARGETS[0]}
-       	
+
        	for ((i = 0; i < $length; i++))
        	do
        		ID=$(curl -u admin:admin -i -X GET ${TARGETS[i]} |grep -Po '"id":"([a-zA-z0-9\-]+)'|grep -Po ':"([a-zA-z0-9\-]+)'|grep -Po '([a-zA-z0-9\-]+)'|head -1)
@@ -204,10 +204,10 @@ startNifiFlow () {
        				PAYLOAD=$(echo "{\"id\":\"$ID\",\"revision\":{\"version\":$REVISION},\"component\":{\"id\":\"$ID\",\"state\":\"RUNNING\"}}")
 			fi
        		echo "$PAYLOAD"
-       		
+
        		curl -u admin:admin -i -H "Content-Type:application/json" -d "${PAYLOAD}" -X PUT ${TARGETS[i]}
        	done
-	else       	
+	else
        	# Start NIFI Flow HDF 1.x
 		echo "*********************************Starting NIFI Flow..."
 		REVISION=$(curl -u admin:admin  -i -X GET http://$AMBARI_HOST:9090/nifi-api/controller/revision |grep -Po '\"version\":([0-9]+)' | grep -Po '([0-9]+)')
@@ -228,7 +228,7 @@ NIFI_SERVICE_PRESENT=$(serviceExists NIFI)
 if [[ "$NIFI_SERVICE_PRESENT" == 0 ]]; then
         echo "*********************************NIFI Service Not Present, Installing..."
         getLatestNifiBits
-        ambari-server restart
+        # ambari-server restart
         # waitForAmbari
         installNifiService
 
