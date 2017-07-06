@@ -15,3 +15,9 @@ export CLUSTER_NAME=$(curl -u admin:admin -X GET http://$AMBARI_HOST:8080/api/v1
 
 ZK_HOST=$AMBARI_HOST
 export ZK_HOST=$ZK_HOST
+
+Install Maven
+echo "*********************************Installing Maven..."
+yum install wget
+wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+yum install -y apache-maven
