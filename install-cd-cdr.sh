@@ -4,8 +4,8 @@ echo "*********************************ROOT PATH IS: $ROOT_PATH"
 # export INTVERSION=$(echo $VERSION*10 | bc | grep -Po '([0-9][0-9])')
 # echo "*********************************HDP VERSION IS: $VERSION"
 
-export VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
-export INTVERSION=$(echo $VERSION*10 | bc | grep -Po '([0-9][0-9])')
+export VERSION=`/usr/bin/hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
+# export INTVERSION=$(echo $VERSION*10 | bc | grep -Po '([0-9][0-9])')
 echo "*********************************HDP VERSION IS: $VERSION"
 
 export AMBARI_HOST=$(hostname -f)
