@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 export ROOT_PATH=$(pwd)
 echo "*********************************ROOT PATH IS: $ROOT_PATH"
 # export INTVERSION=$(echo $VERSION*10 | bc | grep -Po '([0-9][0-9])')
