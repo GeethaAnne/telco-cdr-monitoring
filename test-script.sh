@@ -86,7 +86,16 @@ stopService () {
        	echo "*********************************$SERVICE Service Stopped..."
        	fi
 }
+serviceExists () {
+       	SERVICE=$1
+       	SERVICE_STATUS=$(curl -u admin:admin -X GET http://$AMBARI_HOST:8080/api/v1/clusters/$CLUSTER_NAME/services/$SERVICE | grep '"status" : ' | grep -Po '([0-9]+)')
 
+       	if [ "$SERVICE_STATUS" == 404 ]; then
+       		echo 0
+       	else
+       		echo 1
+       	fi
+}
 startService (){
        	SERVICE=$1
        	SERVICE_STATUS=$(getServiceStatus $SERVICE)
@@ -240,7 +249,12 @@ ROOT_GROUP_REVISION=$(curl -X GET http://$AMBARI_HOST:9090/nifi-api/process-grou
 		curl -d $PAYLOAD  -H "Content-Type: application/json" -X PUT http://$AMBARI_HOST:9090/nifi-api/process-groups/$ROOT_GROUP_ID
 		sleep 1
 }
+getServiceStatus () {
+       	SERVICE=$1
+       	SERVICE_STATUS=$(curl -u admin:admin -X GET http://$AMBARI_HOST:8080/api/v1/clusters/$CLUSTER_NAME/services/$SERVICE | grep '"state" :' | grep -Po '([A-Z]+)')
 
+       	echo $SERVICE_STATUS
+}
 # Start NIFI Flow
 startNifiFlow () {
     echo "*********************************Starting NIFI Flow..."
