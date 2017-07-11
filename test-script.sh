@@ -405,9 +405,9 @@ installUtils
 
 # Build from source
 echo "*********************************Building CDR Storm Topology"
-cd $ROOT_PATH/telco-cdr-monitoring
+cd $ROOT_PATH
 mvn clean package
-cp -vf target/telco-cdr-monitoring-1.0-SNAPSHOT.jar /home/storm
+# cp -vf /root/target/telco-cdr-monitoring-1.0-SNAPSHOT.jar /home/storm
 
 
 
