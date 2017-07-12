@@ -121,13 +121,13 @@ startService (){
 }
 
 getLatestNifiBits () {
-       	if [ "$INTVERSION" -gt 22 ]; then
-       	echo "*********************************Removing Current Version of NIFI..."
-       	rm -rf /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/NIFI
+       	# if [ "$INTVERSION" -gt 22 ]; then
+       #	echo "*********************************Removing Current Version of NIFI..."
+       #	rm -rf /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/NIFI
 
        	echo "*********************************Downloading Newest Version of NIFI..."
        	git clone https://github.com/abajwa-hw/ambari-nifi-service.git  /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/NIFI
-       	fi
+       	# fi
 }
 
 waitForAmbari () {
@@ -258,7 +258,7 @@ getServiceStatus () {
 # Start NIFI Flow
 startNifiFlow () {
     echo "*********************************Starting NIFI Flow..."
-	if [ "$INTVERSION" -gt 24 ]; then
+	# if [ "$INTVERSION" -gt 24 ]; then
     	# Start NIFI Flow HDF 2.x
     	TARGETS=($(curl -u admin:admin -i -X GET http://$AMBARI_HOST:9090/nifi-api/process-groups/root/processors | grep -Po '\"uri\":\"([a-z0-9-://.]+)' | grep -Po '(?!.*\")([a-z0-9-://.]+)'))
        	length=${#TARGETS[@]}
@@ -291,21 +291,21 @@ startNifiFlow () {
 
        		curl -u admin:admin -i -H "Content-Type:application/json" -d "${PAYLOAD}" -X PUT ${TARGETS[i]}
        	done
-	else
+	# else
        	# Start NIFI Flow HDF 1.x
-		echo "*********************************Starting NIFI Flow..."
-		REVISION=$(curl -u admin:admin  -i -X GET http://$AMBARI_HOST:9090/nifi-api/controller/revision |grep -Po '\"version\":([0-9]+)' | grep -Po '([0-9]+)')
+		# echo "*********************************Starting NIFI Flow..."
+	#	REVISION=$(curl -u admin:admin  -i -X GET http://$AMBARI_HOST:9090/nifi-api/controller/revision |grep -Po '\"version\":([0-9]+)' | grep -Po '([0-9]+)')
 
-		TARGETS=($(curl -u admin:admin -i -X GET http://$AMBARI_HOST:9090/nifi-api/controller/process-groups/root/processors | grep -Po '\"uri\":\"([a-z0-9-://.]+)' | grep -Po '(?!.*\")([a-z0-9-://.]+)'))
-length=${#TARGETS[@]}
+	#	TARGETS=($(curl -u admin:admin -i -X GET http://$AMBARI_HOST:9090/nifi-api/controller/process-groups/root/processors | grep -Po '\"uri\":\"([a-z0-9-://.]+)' | grep -Po '(?!.*\")([a-z0-9-://.]+)'))
+#length=${#TARGETS[@]}
 
-		for ((i = 0; i != length; i++)); do
-   			echo curl -u admin:admin -i -X GET ${TARGETS[i]}
-   			echo "Current Revision: " $REVISION
-   			curl -u admin:admin -i -H "Content-Type:application/x-www-form-urlencoded" -d "state=RUNNING&version=$REVISION" -X PUT ${TARGETS[i]}
-		   REVISION=$(curl -u admin:admin  -i -X GET http://$AMBARI_HOST:9090/nifi-api/controller/revision |grep -Po '\"version\":([0-9]+)' | grep -Po '([0-9]+)')
-		done
-	fi
+	#	for ((i = 0; i != length; i++)); do
+   #			echo curl -u admin:admin -i -X GET ${TARGETS[i]}
+   #			echo "Current Revision: " $REVISION
+   	#		curl -u admin:admin -i -H "Content-Type:application/x-www-form-urlencoded" -d "state=RUNNING&version=$REVISION" -X PUT ${TARGETS[i]}
+		#   REVISION=$(curl -u admin:admin  -i -X GET http://$AMBARI_HOST:9090/nifi-api/controller/revision |grep -Po '\"version\":([0-9]+)' | grep -Po '([0-9]+)')
+	#	done
+	# fi
 }
 
 
@@ -362,7 +362,7 @@ export ROOT_PATH=$(pwd)
 echo "*********************************ROOT PATH IS: $ROOT_PATH"
 
 export VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
-export INTVERSION=$(echo $VERSION*10 | bc | grep -Po '([0-9][0-9])')
+# export INTVERSION=$(echo $VERSION*10 | bc | grep -Po '([0-9][0-9])')
 echo "*********************************HDP VERSION IS: $VERSION"
 
 export HADOOP_USER_NAME=hdfs

@@ -47,27 +47,43 @@ public class Topology{
 	public static void main(String[] args) throws Exception {
 
 		//Read props file into HashMap
-		HashMap<String, String> props = getPropertiesMap(args[0]);
+
+
+ String ambari_host = System.getenv("AMBARI_HOST");
+
+HashMap<String, String> props = getPropertiesMap(args[0]);
 		String topologyName = props.get("storm.topologyName");
 		if (Utils.checkProp(props, "storm.killIfRunning", "true") && Utils.checkProp(props, "storm.localMode", "false")) {
 			Utils.killTopology(topologyName);
 		}
-		String zkHost = props.get("zookeeper.host");
+		// String zkHost = props.get("zookeeper.host");
 		String zkRoot = (props.get("zookeeper.root") == null) ? "/kafkastorm" : props.get("zookeeper.root");
 		String dateFormat = props.get("dateFormat");
-		String solrServerUrl = props.get("solr.serverUrl");
-		String hiveMetaStoreURI = props.get("hive.metaStoreURI");
-		String hiveDbName = props.get("hive.dbName");
+	//	String solrServerUrl = props.get("solr.serverUrl");
+	//	String hiveMetaStoreURI = props.get("hive.metaStoreURI");
+
+                String hiveMetaStoreURI = "thrift://" + ambari_host + ":9083";
+
+	String hiveDbName = props.get("hive.dbName");
 		String hiveTblName = props.get("hive.tblName");
-		
+	String zkHost = ambari_host +":2181";
+         String phoenix_url = "jdbc:phoenix:" +ambari_host +":2181:/hbase-unsecure";
+ String solrServerUrl= ambari_host +":8983/solr/cdr";
+
+
+
 		Config conf = new Config();
 		conf.setNumWorkers(Integer.parseInt(props.get("storm.numWorkers")));
-		
+
 		Map hikariProps = new HashMap<String, String>();
-		hikariProps.put("jdbcUrl", props.get("phoenix.jdbcURL"));
+	//	hikariProps.put("jdbcUrl", props.get("phoenix.jdbcURL"));
 		//conf.put("jdbc.conf", hikariProps);
-		hikariProps.put("dataSource.url", props.get("phoenix.jdbcURL"));
-		ConnectionProvider connectionProvider = new HikariCPConnectionProvider(hikariProps);
+
+                   hikariProps.put("jdbcUrl",phoenix_url);
+	// hikariProps.put("dataSource.url", props.get("phoenix.jdbcURL"));
+	   hikariProps.put("dataSource.url",phoenix_url);
+
+	ConnectionProvider connectionProvider = new HikariCPConnectionProvider(hikariProps);
 
 
 
@@ -104,11 +120,11 @@ public class Topology{
 			.withTxnsPerBatch(10);
 		//HiveBolt hiveBolt = new HiveBolt(hiveOptions);
 		//builder.setBolt("CDRHiveBolt", hiveBolt).shuffleGrouping("CDRSpout");
-		
+
 		//3 NETWORK TYPE CHANGE - DETECTION
 		builder.setBolt("networkTypeChangeBolt", new NetworkTypeChangeBolt(sessionIdField, cellIdField, networkTypeField, timestampField, dateFormat))
 			.fieldsGrouping("CDRSpout", new Fields(sessionIdField));
-		
+
 			//3.A NETWORK TYPE CHANGE - ROLLING COUNT
 			RollingCountFromTimestampBolt rollingCountBoltNetworkTypeChanging = new RollingCountFromTimestampBolt()
 				.withKeyFields(keysFieldsRollingCountNetworkTypeChange)
@@ -126,7 +142,7 @@ public class Topology{
 				;
 				builder.setBolt("solrNetworkTypeChangeRollingCount", solrBoltNetworkdTypeChangeRollingCount).shuffleGrouping("rollingCountBoltNetworkTypeChanging");
 				//builder.setBolt("sysoutNetworkdTypeChangeRollingCount", new SysoutBolt("rollingCountBoltNetworkTypeChanging")).shuffleGrouping("rollingCountBoltNetworkTypeChanging");
-			
+
 			//3.B PHOENIX
 			 List<Column> columnSchemaPhoenixNetworkTypeChange = Lists.newArrayList(
                     new Column(sessionIdField, java.sql.Types.VARCHAR),
@@ -143,18 +159,18 @@ public class Topology{
           //columnSchemaPhoenixNetworkTypeChange.add(   new Column(networkTypeField + "_change", java.sql.Types.VARCHAR));
 
         	JdbcMapper simpleJdbcMapperPhoenixNetworkTypeChange = new SimpleJdbcMapper(columnSchemaPhoenixNetworkTypeChange);
-				
+
 			JdbcInsertBolt phoenixNetworkTypeChange = new JdbcInsertBolt(connectionProvider, simpleJdbcMapperPhoenixNetworkTypeChange)
              .withInsertQuery("upsert into CDR.NETWORK_TYPE_CHANGE values (?,?,?,?,?)")
             .withQueryTimeoutSecs(0);
 
 			builder.setBolt("phoenixNetworkTypeChange", phoenixNetworkTypeChange)
 			.shuffleGrouping("networkTypeChangeBolt");
-				
+
 		//4 DROPPED CALLS - DETECTION
 		builder.setBolt("droppedCallBolt", new DroppedCallBolt(simcardIdField, phoneNumberField, dropReasonField, cellIdField, timestampField, dateFormat))
 		.fieldsGrouping("CDRSpout", new Fields(simcardIdField, phoneNumberField));
-		
+
 			//4.A DROPPED CALLS - ROLLING COUNT
 			RollingCountFromTimestampBolt rollingCountBoltDroppedCall = new RollingCountFromTimestampBolt()
 				.withKeyFields(keysFieldsRollingCountDroppedCall)
@@ -172,7 +188,7 @@ public class Topology{
 				;
 				builder.setBolt("solrDroppedCallRollingCount", solrBoltDroppedCallRollingCount).shuffleGrouping("rollingCountBoltDroppedCall");
 				//builder.setBolt("sysoutDroppedCallRollingCount", new SysoutBolt("rollingCountBoltDroppedCall")).shuffleGrouping("rollingCountBoltDroppedCall");
-				
+
 			//4.B PHOENIX
 			   List<Column> columnSchemaPhoenixDroppedCall = Lists.newArrayList(
                     new Column(simcardIdField, java.sql.Types.VARCHAR),
@@ -188,22 +204,22 @@ public class Topology{
          //   columnSchemaPhoenixDroppedCall.add(     new Column(cellIdField, java.sql.Types.VARCHAR));
          //   columnSchemaPhoenixDroppedCall.add(   new Column(dropReasonField, java.sql.Types.VARCHAR));
 
-        	// JdbcMapper simpleJdbcMapperPhoenixDroppedCall = new SimpleJdbcMapper(columnSchemaPhoenixDroppedCall);
-				
-		// JdbcInsertBolt phoenixDroppedCall = new JdbcInsertBolt(connectionProvider, simpleJdbcMapperPhoenixDroppedCall)
-           //    .withInsertQuery("upsert into CDR.DROPPED_CALL values (?,?,?,?,?)")
-            //   .withQueryTimeoutSecs(0);
+        	JdbcMapper simpleJdbcMapperPhoenixDroppedCall = new SimpleJdbcMapper(columnSchemaPhoenixDroppedCall);
+
+		JdbcInsertBolt phoenixDroppedCall = new JdbcInsertBolt(connectionProvider, simpleJdbcMapperPhoenixDroppedCall)
+               .withInsertQuery("upsert into CDR.DROPPED_CALL values (?,?,?,?,?)")
+              .withQueryTimeoutSecs(0);
 
 		// IRichBolt phoenixDroppedCall = new PhoenixDroppedCall(props,simcardIdField, phoneNumberField, timestampField,cellIdField, dropReasonField );
-		// builder.setBolt("PhoenixDroppedCall", phoenixDroppedCall)
-			// .shuffleGrouping("droppedCallBolt");
-			
+		builder.setBolt("PhoenixDroppedCall", phoenixDroppedCall)
+			.shuffleGrouping("droppedCallBolt");
+
 		//Submit topology
-		System.out.println("going to submit Topology:" + topologyName); 
-			
-		if (Utils.checkProp(props, "storm.localMode", "true")) 
+		System.out.println("going to submit Topology:" + topologyName);
+
+		if (Utils.checkProp(props, "storm.localMode", "true"))
 			new LocalCluster().submitTopology(topologyName, conf, builder.createTopology());
-		else 
+		else
 			StormSubmitter.submitTopologyWithProgressBar(topologyName, conf, builder.createTopology());
 	}
 
