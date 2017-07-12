@@ -23,7 +23,7 @@
     <httpclient.version>4.3.1</httpclient.version>
     <!--ranger_solrj.version>0.5.0.2.3.2.0-2950</ranger_solrj.version>
     <commons-lang3.version>3.3.2</commons-lang3.version-->
-     <kafka.version>0.10.0.2.5.0.0-1245</kafka.version>
+     <kafka.version>0.10.1.2.6.1.0-129</kafka.version>
     <hikari.version>2.2.5</hikari.version>
   </properties>
 
