@@ -126,7 +126,9 @@ getLatestNifiBits () {
        #	rm -rf /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/NIFI
 
        	echo "*********************************Downloading Newest Version of NIFI..."
-     git clone https://github.com/abajwa-hw/ambari-nifi-service.git /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/NIFI
+     $ROOT_PATH/nifi-git-clone.sh
+
+    # git clone https://github.com/abajwa-hw/ambari-nifi-service.git /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/NIFI
 }
 
 waitForAmbari () {
