@@ -422,7 +422,9 @@ echo "*********************************Building CDR Storm Topology"
 cd $ROOT_PATH
 mvn clean package
 # cp -vf /root/target/telco-cdr-monitoring-1.0-SNAPSHOT.jar /home/storm
+# Deploy Storm toppology
 
+storm jar $ROOT_PATH/target/telco-cdr-monitoring-1.0-SNAPSHOT.jar com.github.gbraccialli.telco.cdr.storm.Topology $ROOT_PATH/conf/topology.props
 
 
 
