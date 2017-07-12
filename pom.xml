@@ -52,7 +52,7 @@
     </dependency>
     <dependency>
                 <groupId>org.apache.kafka</groupId>
-                <artifactId>kafka-clients</groupId>
+                <artifactId>kafka-clients</artifactId>
                 <version>0.10.1.2.6.1.0-129</version>
              </dependency>
    <dependency>
