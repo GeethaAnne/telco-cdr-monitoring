@@ -185,7 +185,7 @@ installNifiService () {
        	# Add NIFI Master role to Sandbox host
        	curl -u admin:admin -H "X-Requested-By:ambari" -i -X POST http://$AMBARI_HOST:8080/api/v1/clusters/$CLUSTER_NAME/hosts/$AMBARI_HOST/host_components/NIFI_MASTER
 
-       	sleep 30
+       	sleep 50
        	echo "*********************************Installing NIFI Service"
        	# Install NIFI Service
        	TASKID=$(curl -u admin:admin -H "X-Requested-By:ambari" -i -X PUT -d '{"RequestInfo": {"context" :"Install Nifi"}, "Body": {"ServiceInfo": {"maintenance_state" : "OFF", "state": "INSTALLED"}}}' http://$AMBARI_HOST:8080/api/v1/clusters/$CLUSTER_NAME/services/NIFI | grep "id" | grep -Po '([0-9]+)')
@@ -198,7 +198,7 @@ installNifiService () {
        	fi
 
        	echo "*********************************AMBARI TaskID " $TASKID
-       	sleep 2
+       	sleep 7
        	LOOPESCAPE="false"
        	until [ "$LOOPESCAPE" == true ]; do
                	TASKSTATUS=$(curl -u admin:admin -X GET http://$AMBARI_HOST:8080/api/v1/clusters/$CLUSTER_NAME/requests/$TASKID | grep "request_status" | grep -Po '([A-Z]+)')
@@ -206,7 +206,7 @@ installNifiService () {
                        	LOOPESCAPE="true"
                	fi
                	echo "*********************************Task Status" $TASKSTATUS
-               	sleep 2
+               	sleep 5
        	done
 }
 
@@ -221,7 +221,7 @@ waitForNifiServlet () {
        		fi
        		echo "*********************************Waiting for NIFI Servlet..."
        		echo "*********************************NIFI Servlet Status... " $TASKSTATUS
-       		sleep 2
+       		sleep 7
        	done
 }
 
