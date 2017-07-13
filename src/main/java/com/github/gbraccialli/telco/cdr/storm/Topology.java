@@ -144,13 +144,13 @@ HashMap<String, String> props = getPropertiesMap(args[0]);
 				//builder.setBolt("sysoutNetworkdTypeChangeRollingCount", new SysoutBolt("rollingCountBoltNetworkTypeChanging")).shuffleGrouping("rollingCountBoltNetworkTypeChanging");
 
 			//3.B PHOENIX
-			 List<Column> columnSchemaPhoenixNetworkTypeChange = Lists.newArrayList(
-                    new Column(sessionIdField, java.sql.Types.VARCHAR),
-                        new Column(timestampField, java.sql.Types.VARCHAR),
-                        new Column(cellIdField + "_from", java.sql.Types.VARCHAR),
-                    new Column(cellIdField + "_to", java.sql.Types.VARCHAR),
-                    new Column(networkTypeField + "_change", java.sql.Types.VARCHAR)
-                    );
+			// List<Column> columnSchemaPhoenixNetworkTypeChange = Lists.newArrayList(
+        //            new Column(sessionIdField, java.sql.Types.VARCHAR),
+          //              new Column(timestampField, java.sql.Types.VARCHAR),
+            //            new Column(cellIdField + "_from", java.sql.Types.VARCHAR),
+              //      new Column(cellIdField + "_to", java.sql.Types.VARCHAR),
+                //    new Column(networkTypeField + "_change", java.sql.Types.VARCHAR)
+                  //  );
             //List<Column> columnSchemaPhoenixNetworkTypeChange = new ArrayList<Column>();
           //columnSchemaPhoenixNetworkTypeChange.add(new Column(sessionIdField, java.sql.Types.VARCHAR));
           //columnSchemaPhoenixNetworkTypeChange.add(new Column(timestampField, java.sql.Types.VARCHAR));
@@ -158,14 +158,14 @@ HashMap<String, String> props = getPropertiesMap(args[0]);
           //columnSchemaPhoenixNetworkTypeChange.add(   new Column(cellIdField + "_to", java.sql.Types.VARCHAR));
           //columnSchemaPhoenixNetworkTypeChange.add(   new Column(networkTypeField + "_change", java.sql.Types.VARCHAR));
 
-        	JdbcMapper simpleJdbcMapperPhoenixNetworkTypeChange = new SimpleJdbcMapper(columnSchemaPhoenixNetworkTypeChange);
+//        	JdbcMapper simpleJdbcMapperPhoenixNetworkTypeChange = new SimpleJdbcMapper(columnSchemaPhoenixNetworkTypeChange);
 
-			JdbcInsertBolt phoenixNetworkTypeChange = new JdbcInsertBolt(connectionProvider, simpleJdbcMapperPhoenixNetworkTypeChange)
-             .withInsertQuery("upsert into CDR.NETWORK_TYPE_CHANGE values (?,?,?,?,?)")
-            .withQueryTimeoutSecs(0);
+	//		JdbcInsertBolt phoenixNetworkTypeChange = new JdbcInsertBolt(connectionProvider, simpleJdbcMapperPhoenixNetworkTypeChange)
+    //         .withInsertQuery("upsert into CDR.NETWORK_TYPE_CHANGE values (?,?,?,?,?)")
+      //      .withQueryTimeoutSecs(0);
 
-			builder.setBolt("phoenixNetworkTypeChange", phoenixNetworkTypeChange)
-			.shuffleGrouping("networkTypeChangeBolt");
+			// builder.setBolt("phoenixNetworkTypeChange", phoenixNetworkTypeChange)
+			// .shuffleGrouping("networkTypeChangeBolt");
 
 		//4 DROPPED CALLS - DETECTION
 		builder.setBolt("droppedCallBolt", new DroppedCallBolt(simcardIdField, phoneNumberField, dropReasonField, cellIdField, timestampField, dateFormat))
@@ -190,13 +190,13 @@ HashMap<String, String> props = getPropertiesMap(args[0]);
 				//builder.setBolt("sysoutDroppedCallRollingCount", new SysoutBolt("rollingCountBoltDroppedCall")).shuffleGrouping("rollingCountBoltDroppedCall");
 
 			//4.B PHOENIX
-			   List<Column> columnSchemaPhoenixDroppedCall = Lists.newArrayList(
-                    new Column(simcardIdField, java.sql.Types.VARCHAR),
-                    new Column(phoneNumberField, java.sql.Types.VARCHAR),
-                    new Column(timestampField, java.sql.Types.VARCHAR),
-                    new Column(cellIdField, java.sql.Types.VARCHAR),
-                    new Column(dropReasonField, java.sql.Types.VARCHAR)
-                    );
+			   //List<Column> columnSchemaPhoenixDroppedCall = Lists.newArrayList(
+           //         new Column(simcardIdField, java.sql.Types.VARCHAR),
+             //       new Column(phoneNumberField, java.sql.Types.VARCHAR),
+               //     new Column(timestampField, java.sql.Types.VARCHAR),
+                 //   new Column(cellIdField, java.sql.Types.VARCHAR),
+                   // new Column(dropReasonField, java.sql.Types.VARCHAR)
+                    )//;
           //  List<Column> columnSchemaPhoenixDroppedCall = new ArrayList<Column>();
            // columnSchemaPhoenixDroppedCall.add(  new Column(simcardIdField, java.sql.Types.VARCHAR));
            // columnSchemaPhoenixDroppedCall.add(  new Column(phoneNumberField, java.sql.Types.VARCHAR));
@@ -204,15 +204,15 @@ HashMap<String, String> props = getPropertiesMap(args[0]);
          //   columnSchemaPhoenixDroppedCall.add(     new Column(cellIdField, java.sql.Types.VARCHAR));
          //   columnSchemaPhoenixDroppedCall.add(   new Column(dropReasonField, java.sql.Types.VARCHAR));
 
-        	JdbcMapper simpleJdbcMapperPhoenixDroppedCall = new SimpleJdbcMapper(columnSchemaPhoenixDroppedCall);
+        //	JdbcMapper simpleJdbcMapperPhoenixDroppedCall = new SimpleJdbcMapper(columnSchemaPhoenixDroppedCall);
 
-		JdbcInsertBolt phoenixDroppedCall = new JdbcInsertBolt(connectionProvider, simpleJdbcMapperPhoenixDroppedCall)
-               .withInsertQuery("upsert into CDR.DROPPED_CALL values (?,?,?,?,?)")
-              .withQueryTimeoutSecs(0);
+	//	JdbcInsertBolt phoenixDroppedCall = new JdbcInsertBolt(connectionProvider, simpleJdbcMapperPhoenixDroppedCall)
+    //         .withInsertQuery("upsert into CDR.DROPPED_CALL values (?,?,?,?,?)")
+      //        .withQueryTimeoutSecs(0);
 
 		// IRichBolt phoenixDroppedCall = new PhoenixDroppedCall(props,simcardIdField, phoneNumberField, timestampField,cellIdField, dropReasonField );
-		builder.setBolt("PhoenixDroppedCall", phoenixDroppedCall)
-			.shuffleGrouping("droppedCallBolt");
+		// builder.setBolt("PhoenixDroppedCall", phoenixDroppedCall)
+			// .shuffleGrouping("droppedCallBolt");
 
 		//Submit topology
 		System.out.println("going to submit Topology:" + topologyName);
