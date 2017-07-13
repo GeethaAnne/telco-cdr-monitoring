@@ -20,9 +20,9 @@ public class GenerateSampleCDR {
 	//private static long sleepInterval = 1*60*1000;
 	private static long sleepInterval = 60000;
 	private static long milisBetweenRows = sleepInterval / numberOfRowsPerInteration;
-	private static String targetFolder = "/home/geetha/telco-cdr-monitoring/data";
+	private static String targetFolder = "/root/telco-cdr-monitoring/data";
 
-	final static String[] cellIds = new String[]{ 
+	final static String[] cellIds = new String[]{
 		"cell A",
 		"cell B",
 		"cell C",
@@ -35,7 +35,7 @@ public class GenerateSampleCDR {
 		"cell J"
 	};
 
-	final static String[] simCards = new String[]{ 
+	final static String[] simCards = new String[]{
 		"SIM-00001",
 		"SIM-00002",
 		"SIM-00003",
@@ -48,7 +48,7 @@ public class GenerateSampleCDR {
 		"SIM-00010"
 	};
 
-	final static String[] phoneNumbers = new String[]{ 
+	final static String[] phoneNumbers = new String[]{
 		"PHONE-00001",
 		"PHONE-00002",
 		"PHONE-00003",
@@ -61,7 +61,7 @@ public class GenerateSampleCDR {
 		"PHONE-00010"
 	};
 
-	final static String[] dropReasons = new String[]{ 
+	final static String[] dropReasons = new String[]{
 		"Poor network connection issues",
 		"OS of cell phone not upgraded",
 		"Bad SIM Card Error",
@@ -103,7 +103,7 @@ public class GenerateSampleCDR {
 
 		long lastTimestamp = initialTimestamp;
 		BufferedWriter writer = null;
-		
+
 		try {
 		writer = new BufferedWriter(new OutputStreamWriter(System.out));
 			while (true){
@@ -155,7 +155,7 @@ public class GenerateSampleCDR {
 			} catch (Exception e) {
 			}
 		}
-	}		
+	}
 
 	public static String networkChangeRowsPair(long timestmap){
 
