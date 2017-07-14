@@ -196,7 +196,7 @@ HashMap<String, String> props = getPropertiesMap(args[0]);
                //     new Column(timestampField, java.sql.Types.VARCHAR),
                  //   new Column(cellIdField, java.sql.Types.VARCHAR),
                    // new Column(dropReasonField, java.sql.Types.VARCHAR)
-                    )//;
+                    // );
           //  List<Column> columnSchemaPhoenixDroppedCall = new ArrayList<Column>();
            // columnSchemaPhoenixDroppedCall.add(  new Column(simcardIdField, java.sql.Types.VARCHAR));
            // columnSchemaPhoenixDroppedCall.add(  new Column(phoneNumberField, java.sql.Types.VARCHAR));
