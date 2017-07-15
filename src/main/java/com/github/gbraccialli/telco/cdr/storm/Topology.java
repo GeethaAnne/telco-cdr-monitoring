@@ -57,7 +57,7 @@ HashMap<String, String> props = getPropertiesMap(args[0]);
 			Utils.killTopology(topologyName);
 		}
 		// String zkHost = props.get("zookeeper.host");
-		String zkRoot = (props.get("zookeeper.root") == null) ? "/" : props.get("zookeeper.root");
+		String zkRoot = (props.get("zookeeper.root") == null) ? "/kafkastorm" : props.get("zookeeper.root");
 		String dateFormat = props.get("dateFormat");
 	//	String solrServerUrl = props.get("solr.serverUrl");
 	//	String hiveMetaStoreURI = props.get("hive.metaStoreURI");
@@ -68,7 +68,7 @@ HashMap<String, String> props = getPropertiesMap(args[0]);
 		String hiveTblName = props.get("hive.tblName");
 	String zkHost = ambari_host +":2181";
          String phoenix_url = "jdbc:phoenix:" +ambari_host +":2181:/hbase-unsecure";
- String solrServerUrl= ambari_host +":8983/solr/cdr";
+ String solrServerUrl= "http://" + ambari_host +":8983/solr/cdr";
 
 
 
